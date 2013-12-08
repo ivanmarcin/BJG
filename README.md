@@ -1,2 +1,2 @@
-BJG
+Black Jack Game
 ===
