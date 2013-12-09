@@ -1,3 +1,3 @@
 module BlackJack
-    VERSION = "0.1.0"
+    VERSION = "0.1.#{ENV['BUILD_NUMBER'] || 'dev'}"
 end
