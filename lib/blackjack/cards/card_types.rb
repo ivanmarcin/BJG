@@ -66,7 +66,7 @@ class Card
     else
       text = "[#{to_s}]".black.on_white
     end
-    puts text
+    text
   end
 
 end

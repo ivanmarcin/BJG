@@ -5,6 +5,8 @@ require 'lib/blackjack/cards/card_types'
 require 'lib/blackjack/game/player'
 require 'lib/blackjack/game/blackjack_player'
 require 'lib/blackjack/game/game'
+require 'lib/blackjack/game/game_stats'
+require 'lib/blackjack/game/board'
 
 
 module BlackJackGame

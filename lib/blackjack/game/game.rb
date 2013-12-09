@@ -17,13 +17,26 @@ class Game
 
     #todo: Add a computer player.
     #todo: reverse card [░░]
-    @players.push(BlackJackPlayer.new("One"))
+    @players.push(BlackJackPlayer.new("Dealer"))
     @players.push(BlackJackPlayer.new("Two"))
   end
 
   # Go Through each player in the game and deal a black jack game.
   def GameRound
+    @players.each
+
     #todo
   end
+
+
+  def action(act)
+    case act
+      when :hit
+        #add a card
+      when :stay
+        #skip to next player
+    end
+  end
+
 
 end
