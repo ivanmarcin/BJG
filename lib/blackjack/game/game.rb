@@ -23,9 +23,9 @@ class Game
 
   # Go Through each player in the game and deal a black jack game.
   def GameRound
-    @players.each
-
-    #todo
+    @players.each do |current_player|
+      #display turn
+    end
   end
 
 
