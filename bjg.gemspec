@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.files                     = Dir.glob("{bin,lib}/**/*")
   s.require_path              = 'lib'
 
-
+  #gem dependencies.
+  s.add_dependency 'colorize'
 end
