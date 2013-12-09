@@ -9,7 +9,7 @@ module Cards
     end
 
     describe '#shuffle' do
-      it 'shuffled' do
+      it 'shuffles correctly' do
         bj_deck = Deck.build_deck
         shuffled_deck = Deck.shuffle(bj_deck)
 
@@ -25,6 +25,14 @@ module Cards
         expect(Card.new(:diamond,:queen).to_s).to eq "Q♦"
         expect(Card.new(:clove,:ace).to_s).to eq "A♣"
         expect(Card.new(:clove,:three).to_s).to eq "3♣"
+      end
+    end
+
+    describe '#value' do
+      it 'calculates the correct value' do
+        expect(Card.new(:clove,:ace).value).to eq 1
+        expect(Card.new(:clove,:king).value).to eq 13
+        expect(Card.new(:clove,:three).value).to eq 3
       end
     end
   end

@@ -55,6 +55,10 @@ class Card
     return "#{FrenchDeck.card_face(@type)}#{FrenchDeck::SUIT[@suit]}"
   end
 
+  def value
+    return FrenchDeck::TYPE[@type]
+  end
+
   def print
     case @suit
     when :heart, :diamond

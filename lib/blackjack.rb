@@ -2,6 +2,9 @@
 require 'lib/blackjack/version'
 require 'lib/blackjack/cards/deck'
 require 'lib/blackjack/cards/card_types'
+require 'lib/blackjack/game/player'
+require 'lib/blackjack/game/blackjack_player'
+require 'lib/blackjack/game/game'
 
 
 module BlackJackGame
@@ -9,7 +12,7 @@ module BlackJackGame
   class Game
 
     def initialize
-      @deck  = Deck.build_deck
+      @game  = Game.new
     end
 
   end
