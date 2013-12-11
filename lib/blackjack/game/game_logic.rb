@@ -35,8 +35,8 @@ class GameLogic
         when :dealer
               #auto play
         when :human
-          while current_player.hand_value < 21
-            action_handler(current_player)
+          while current_player.hand_value < 21 and @last_action != :stay
+            @last_action = action_handler(current_player)
           end
       end
 
@@ -63,7 +63,7 @@ class GameLogic
         p.add_card(@card_deck.pop, true)
         p.add_card(@card_deck.pop, true)
       else
-        p.add_card(@card_deck.pop, true)
+        p.add_card(@card_deck.pop, false)
         p.add_card(@card_deck.pop, false)
       end
 
@@ -73,12 +73,13 @@ class GameLogic
   # Game action
   def action_handler(player)
 
+    puts "dealing with #{player.name}"
     response = Board.re_draw(@player_list,["Hit", "Stay"])
     case response
       when 'H'
         player.add_card(@card_deck.pop, false)
       when 'S'
-        return
+        return :stay
       else
         #iterate again
         action_handler(player)

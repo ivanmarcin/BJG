@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'lib/blackjack/version'
 require 'lib/blackjack/cards/deck'
+require 'lib/blackjack/cards/card'
 require 'lib/blackjack/cards/card_types'
 require 'lib/blackjack/game/player'
 require 'lib/blackjack/game/blackjack_player'
@@ -28,6 +29,8 @@ module BlackJackGame
     def start_game
       #todo: make a loop of games until user chooses to exit
       @game_logic.game_round
+
+      puts "Bye! thx for playing"
     end
 
   end
