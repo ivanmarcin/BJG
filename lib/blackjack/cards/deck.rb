@@ -16,6 +16,6 @@ class Deck
 
   # Returns a copy of a random shuffled deck.
   def self.shuffle(deck)
-    deck.shuffle(Time.now.to_i)
+    deck.shuffle(random: Random.new(Time.now.to_i))
   end
 end
