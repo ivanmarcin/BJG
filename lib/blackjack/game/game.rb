@@ -7,7 +7,7 @@ class Game
   @total_games
   @deck_dealt_times
 
-  @players = {}
+  @players
 
   def initialize
     @cards = Deck.build_deck
@@ -16,7 +16,7 @@ class Game
     @deck_dealt_times = 0
 
     #todo: Add a computer player.
-    #todo: reverse card [░░]
+    @players = []
     @players.push(BlackJackPlayer.new("Dealer"))
     @players.push(BlackJackPlayer.new("Two"))
   end
@@ -24,8 +24,9 @@ class Game
   # Go Through each player in the game and deal a black jack game.
   def GameRound
     @players.each do |current_player|
-      #display turn
+      #todo
     end
+    Board.re_draw(@players, nil,  ["hit,stay"])
   end
 
 

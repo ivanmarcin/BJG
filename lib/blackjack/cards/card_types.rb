@@ -2,6 +2,9 @@
 require 'colorize'
 
 class FrenchDeck
+# Representation of a 52 poker/blackjack card deck.
+
+  # Numeric Type
   TYPE = {
     :ace    => 1,
     :two    => 2,
@@ -18,6 +21,7 @@ class FrenchDeck
     :king   => 13
   }.freeze
 
+  # Figure
   SUIT = {
     :spade   => "♠",
     :heart   => "♥",
@@ -25,6 +29,8 @@ class FrenchDeck
     :clove   => "♣"
   }.freeze
 
+  # Returns the value as it would appear visually on a french deck card
+  # i.e: J or a Jack card.
   def self.card_face(card_type)
     case TYPE[card_type]
     when 2..10
@@ -43,22 +49,29 @@ class FrenchDeck
 end
 
 class Card
+  # Container for a game card and helper methods.
   attr_accessor :type
   attr_accessor :suit
 
+  # card_suit: shape of card:
+  # card_type: numerical value
   def initialize(card_suit, card_type)
     @suit = card_suit
     @type = card_type
   end
 
+  # Returns the printed notation of a card
+  # i.e. 2 of diamonds: 2♦
   def to_s
     return "#{FrenchDeck.card_face(@type)}#{FrenchDeck::SUIT[@suit]}"
   end
 
+  # Easy accesor to the value of the card
   def value
     return FrenchDeck::TYPE[@type]
   end
 
+  # Helper to return the text representation of the card in the respective color
   def print
     case @suit
     when :heart, :diamond

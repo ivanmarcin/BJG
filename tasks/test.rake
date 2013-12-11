@@ -10,6 +10,7 @@ namespace :test do
     puts "Blackjack version #{BlackJack::VERSION}".green
   end
 
+
   task :default => [:bvt]
 end
 
