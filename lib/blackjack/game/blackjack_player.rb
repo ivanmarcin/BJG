@@ -56,8 +56,8 @@ class BlackJackPlayer < Player
     blackjack = false
     if @cards_in_hand.count == 2
       pair = []
-      pair.push  @cards_in_hand.keys.first.type
-      pair.push  @cards_in_hand.keys.last.type
+      pair.push @cards_in_hand.keys.first.type
+      pair.push @cards_in_hand.keys.last.type
 
       if pair.include?(:ace) and [:jack, :king, :queen].any? { |i| pair.include?(i) }
         blackjack = true
@@ -65,4 +65,12 @@ class BlackJackPlayer < Player
     end
     blackjack
   end
+
+  # Flip visibility of all cards on black jack
+  def blackjack!
+    @cards_in_hand.each do |c|
+      @cards_in_hand[c] = false
+    end
+  end
+
 end

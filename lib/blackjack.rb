@@ -16,8 +16,8 @@ module BlackJackGame
 
     def initialize
       @players = []
-      @players.push(BlackJackPlayer.new("Dealer"))
-      @players.push(BlackJackPlayer.new("Two"))
+      @players.push(BlackJackPlayer.new("Mr. Dealer"))
+      @players.push(BlackJackPlayer.new("Human"))
 
       game_loop
     end
@@ -27,6 +27,7 @@ module BlackJackGame
       while true do
         Board.re_draw(@players)
         sleep(0.25) # We don't need a 60fps console game :)
+
       end
     end
 
