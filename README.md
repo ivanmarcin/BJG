@@ -18,7 +18,8 @@ From the console, execute the following commands:
 
 To execute from Source:
 
-Clone repository and then after checkout run
+Clone repository and then after checkout run:
+
     $ git clone https://github.com/ivanmarcin/BJG
     $ cd BJG
     $ rvm install jruby     # optional
