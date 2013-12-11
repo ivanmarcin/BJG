@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class BlackJackPlayer < Player
 # Represents a game player with the logic for a Black Jack game
 
@@ -63,6 +64,12 @@ class BlackJackPlayer < Player
       end
     end
     blackjack
+  end
+
+  def reveal_deck
+    @cards_in_hand.keys.each do |c|
+      @cards_in_hand[c] = false
+    end
   end
 
   # Flip visibility of all cards on black jack

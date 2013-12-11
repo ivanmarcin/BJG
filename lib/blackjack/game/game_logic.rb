@@ -23,7 +23,7 @@ class GameLogic
 
     deal_initial_cards(@player_list)
 
-    @player_list.each do |current_player|
+    @player_list.reverse.each do |current_player|
       if current_player.blackjack_in_hand?
         current_player.blackjack!
         continue
@@ -33,7 +33,7 @@ class GameLogic
 
       case current_player.kind
         when :dealer
-              #auto play
+          dealer_handler(current_player)
         when :human
           while current_player.hand_value < 21 and @last_action != :stay
             @last_action = action_handler(current_player)
@@ -60,8 +60,8 @@ class GameLogic
       p.clear_cards
 
       if p.kind == :dealer
-        p.add_card(@card_deck.pop, true)
-        p.add_card(@card_deck.pop, true)
+        p.add_card(@card_deck.pop, true) #first card from dealer is hidden :)
+        p.add_card(@card_deck.pop, false)
       else
         p.add_card(@card_deck.pop, false)
         p.add_card(@card_deck.pop, false)
@@ -84,6 +84,20 @@ class GameLogic
         #iterate again
         action_handler(player)
     end
+  end
+
+  #deals with the turn of the dealer
+  def dealer_handler(player)
+    player.reveal_deck
+    Board.re_draw(@player_list)
+
+    while player.should_hit?(@player_list)
+      sleep(1)
+      player.add_card(@card_deck.pop)
+    end
+
+    Board.re_draw(@player_list)
+
   end
 
   # Logic to picking a winner

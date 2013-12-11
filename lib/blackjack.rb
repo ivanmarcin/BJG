@@ -3,8 +3,9 @@ require 'lib/blackjack/version'
 require 'lib/blackjack/cards/deck'
 require 'lib/blackjack/cards/card'
 require 'lib/blackjack/cards/card_types'
-require 'lib/blackjack/game/player'
-require 'lib/blackjack/game/blackjack_player'
+require 'lib/blackjack/players/player'
+require 'lib/blackjack/players/blackjack_player'
+require 'lib/blackjack/players/dealer'
 require 'lib/blackjack/game/game_logic'
 require 'lib/blackjack/game/game_stats'
 require 'lib/blackjack/game/board'
@@ -19,7 +20,7 @@ module BlackJackGame
     # Create a new player list and Game Deck
     def initialize
       @players = []
-      @players.push(BlackJackPlayer.new("Mr. Dealer", :dealer))
+      @players.push(Dealer.new("Mr. Dealer"))
       @players.push(BlackJackPlayer.new("Human"))
       @game_logic = GameLogic.new(@players)
       start_game

@@ -22,18 +22,20 @@ class Board
 
   # Prints a player's data and current card deck.
   def self.print_player(player)
+    hidding     = false
     player_deck = ""
-
-    print_avatar(player)
 
     player.cards_in_hand.keys.each do |card|
       if player.cards_in_hand[card] #hidden
         player_deck += "[░░]".black.on_white
+        hidding = true
       else
         player_deck += card.print
       end
     end
 
+    puts print_avatar(player)
+    puts " Card Total: #{player.hand_value}".cyan unless hidding
     puts "\t\t #{player_deck} \n\n"
 
     if player.kind == :dealer
@@ -90,7 +92,7 @@ class Board
         avt = dealer_avatar
     end
 
-    puts  avt + "*".yellow + "  #{player.name} \t\t\t".magenta
+    avt + "*".yellow + "  #{player.name} \t\t\t".magenta
   end
 
   # Player Character drawing
