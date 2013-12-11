@@ -40,7 +40,7 @@ class GameLogic
           end
       end
 
-      pick_winner
+      Board.print_winner_list(pick_winner)
 
       update_stats
     end
@@ -85,9 +85,33 @@ class GameLogic
     end
   end
 
-  # choose whoever won the round
+  # Logic to picking a winner
+  # Since there is no betting:
+  #   If somebody on the table has blackjack, they are the winners
+  #   Otherwise. whomever gets the top score wins.
+  #   Note: According to casino rules online => Blackjack beats 21
   def pick_winner
-    puts "winner is..."
+    max_score    = 0
+    winners      = []
+    blackjackers = []
+
+    @player_list.each do |p|
+      if p.blackjack_in_hand?
+        blackjackers.push(p.name)
+      elsif p.hand_value == max_score
+        winners.push(p.name)
+      elsif p.hand_value > max_score and p.hand_value <= 21
+        winners = []
+        winners.push(p.name)
+      end
+    end
+
+    #choose the winner!
+    if blackjackers.count > 0
+      return blackjackers
+    else
+      return winners
+    end
   end
 
   # update game win/loss ratio stats

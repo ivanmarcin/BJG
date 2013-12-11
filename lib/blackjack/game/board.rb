@@ -66,6 +66,11 @@ class Board
     return nil
   end
 
+  # Pretty prints the winner list
+  def self.print_winner_list(winners)
+    puts " **!!!! #{winners.join(' and ')} wins this round!".magenta
+  end
+
   # clears the display to ready it for a redraw.
   # this works on linux/osx only
   def self.clear_screen
