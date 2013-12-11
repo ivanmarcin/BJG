@@ -1,13 +1,20 @@
 class BlackJackPlayer < Player
+# Represents a game player with the logic for a Black Jack game
+
   # key value pairs.
-  # each pair is key: Card object, Value: boolean representing visibility
+  # k/v pairs for: Card object, Value: boolean representing visibility
   attr_accessor :cards_in_hand
 
+  # New player with no cards in hand.
+  # Requires name of the player
   def initialize(name)
     super(name)
     @cards_in_hand = {}
   end
 
+  # Adds a card to the players deck.
+  # hidden is a flag to display the card as not visible to the players
+  # representing a facing down card.
   def add_card(card, hidden = false)
     # player can only have one hidden card in the game
     if hidden
@@ -15,7 +22,6 @@ class BlackJackPlayer < Player
         @cards_in_hand[card] = false
       end
     end
-
     @cards_in_hand[card] = hidden
   end
 
@@ -41,7 +47,6 @@ class BlackJackPlayer < Player
     if has_ace and (hand_value + 10) <= 21
       hand_value += 10
     end
-
     hand_value
   end
 

@@ -1,7 +1,9 @@
 # encoding: UTF-8
 class Deck
+# Represents a game deck containing 52 cards.
+# plus helper methods to handle the deck.
 
-  # 52 card deck of cards. 1 per suite
+  # Creates a new ordered deck. 52 card deck of cards. 1 per suite
   def self.build_deck
     deck = []
     FrenchDeck::SUIT.each do |suit|
@@ -12,7 +14,7 @@ class Deck
     deck
   end
 
-  # Return a random shuffled deck.
+  # Returns a copy of a random shuffled deck.
   def self.shuffle(deck)
     deck.shuffle(Time.now.to_i)
   end

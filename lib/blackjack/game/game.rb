@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class Game
+# Game logic methods
 
   @cards
   @discard_pile

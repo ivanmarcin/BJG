@@ -49,7 +49,7 @@ class FrenchDeck
 end
 
 class Card
-  # Container for a game card and helper methods.
+# Container for a game card and helper methods.
   attr_accessor :type
   attr_accessor :suit
 
