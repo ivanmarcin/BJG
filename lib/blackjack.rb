@@ -20,14 +20,14 @@ module BlackJackGame
       @players = []
       @players.push(BlackJackPlayer.new("Mr. Dealer", :dealer))
       @players.push(BlackJackPlayer.new("Human"))
-      @game_logic = GameLogic.new
+      @game_logic = GameLogic.new(@players)
       start_game
     end
 
     # The Game
     def start_game
       #todo: make a loop of games until user chooses to exit
-      @game_logic.game_round(players)
+      @game_logic.game_round
     end
 
   end

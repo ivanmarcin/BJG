@@ -4,7 +4,7 @@ class Board
 
   # Drawing routine.
   # Receives a game state, and draws the board.
-  def self.re_draw(players, game_stats = nil, action_list = nil)
+  def self.re_draw(players, action_list = nil, game_stats = nil)
     clear_screen
     print_header
     print_separator
@@ -56,7 +56,10 @@ class Board
         action_bar += " - [#{action[0]}]".green + action[1..-1]
       end
 
-      output = gets
+      puts action_bar
+
+      output = STDIN.gets
+
       return output.capitalize[0]
     end
 

@@ -72,7 +72,7 @@ class BlackJackPlayer < Player
 
   # Flip visibility of all cards on black jack
   def blackjack!
-    @cards_in_hand.each do |c|
+    @cards_in_hand.keys do |c|
       @cards_in_hand[c] = false
     end
   end

@@ -2,31 +2,34 @@
 class GameLogic
 # Game logic methods
 
+  attr_accessor :player_list
   attr_accessor :game_number
   attr_accessor :card_deck
   attr_accessor :discard_pile
   attr_accessor :games_before_shuffle
 
-  def initialize
-    @card_deck = Deck.build_deck
+  def initialize(players)
     @discard_pile = []
-    @game_number = 0
+    @game_number  = 0
+    @player_list  = players
+    @card_deck    = Deck.build_deck
     @games_before_shuffle = 6
   end
 
   # Go Through each player in the game and deal a black jack game.
-  def game_round(players)
+  def game_round
+
     shuffle_deck!
 
-    deal_initial_cards(players)
+    deal_initial_cards(@player_list)
 
-    players.each do |current_player|
+    @player_list.each do |current_player|
       if current_player.blackjack_in_hand?
         current_player.blackjack!
         continue
       end
 
-      Board.re_draw(players)
+      Board.re_draw(@player_list)
 
       case current_player.kind
         when :dealer
@@ -69,17 +72,22 @@ class GameLogic
 
   # Game action
   def action_handler(player)
-    Board.re_draw(player,)
-   # case act
-   #   when :hit
-   #     #add a card
-   #   when :stay
-   #     #skip to next player
-   # end
+
+    response = Board.re_draw(@player_list,["Hit", "Stay"])
+    case response
+      when 'H'
+        player.add_card(@card_deck.pop, false)
+      when 'S'
+        return
+      else
+        #iterate again
+        action_handler(player)
+    end
   end
 
   # choose whoever won the round
   def pick_winner
+    puts "winner is..."
   end
 
   # update game win/loss ratio stats
