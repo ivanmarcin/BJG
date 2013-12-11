@@ -13,22 +13,21 @@ module BlackJackGame
 
   class Game
     attr_accessor :players
+    attr_accessor :game_logic
 
+    # Create a new player list and Game Deck
     def initialize
       @players = []
-      @players.push(BlackJackPlayer.new("Mr. Dealer"))
+      @players.push(BlackJackPlayer.new("Mr. Dealer", :dealer))
       @players.push(BlackJackPlayer.new("Human"))
-
-      game_loop
+      @game_logic = GameLogic.new
+      start_game
     end
 
-    # Main Game Loop
-    def game_loop
-      while true do
-        Board.re_draw(@players)
-        sleep(0.25) # We don't need a 60fps console game :)
-
-      end
+    # The Game
+    def start_game
+      #todo: make a loop of games until user chooses to exit
+      @game_logic.game_round(players)
     end
 
   end

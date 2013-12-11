@@ -20,26 +20,31 @@ class Board
     end
   end
 
-  #prints a player's data and current card deck.
+  # Prints a player's data and current card deck.
   def self.print_player(player)
-    puts  player_avatar + "*".yellow + "  #{player.name} \t\t\t".blue
-    player_deck = "\t"
+    player_deck = ""
+
+    print_avatar(player)
 
     player.cards_in_hand.keys.each do |card|
-      if player.cards_in_hand[card]
+      if player.cards_in_hand[card] #hidden
         player_deck += "[░░]".black.on_white
       else
         player_deck += card.print
       end
     end
 
-    puts "\t\t== #{player_deck} ==\n\n"
+    puts "\t\t #{player_deck} \n\n"
+
+    if player.kind == :dealer
+      print_board_logo
+    end
   end
 
-  # prints a colored line
+  # Prints a colored line
   def self.print_separator
-    separator = "=" * 80
-    puts separator.yellow
+    separator = "=-_-=" * 15
+    puts separator.yellow + "\n"
   end
 
   # Displays a list of actions to the user, and returns the user's selected action
@@ -68,6 +73,18 @@ class Board
   # Ascii drawing methods
   ####################################################################
 
+  def self.print_avatar(player)
+    avt = ""
+    case player.kind
+      when :human
+        avt = player_avatar
+      when :dealer
+        avt = dealer_avatar
+    end
+
+    puts  avt + "*".yellow + "  #{player.name} \t\t\t".magenta
+  end
+
 
   # Player Character drawing
   def self.player_avatar
@@ -87,5 +104,12 @@ class Board
     puts "`---'`---'`---^`---'`   `    |`---^`---'`   `".green
     puts "                         `---'               ".yellow
   end
+
+  def self.print_board_logo
+    puts "\t         /    \\ ".yellow
+    puts "\t   ==== | =BJ= | ====".light_green
+    puts "\t         \\    /  \n\n".yellow
+  end
+
 
 end

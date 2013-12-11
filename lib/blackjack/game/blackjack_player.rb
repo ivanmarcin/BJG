@@ -7,11 +7,15 @@ class BlackJackPlayer < Player
 
   # New player with no cards in hand.
   # Requires name of the player
-  def initialize(name)
-    super(name)
-    @cards_in_hand = {}
+  def initialize(name, kind = :human)
+    super(name, kind)
+    clear_cards
   end
 
+  # Empty the players cards
+  def clear_cards
+    @cards_in_hand = {}
+  end
   # Adds a card to the players deck.
   # hidden is a flag to display the card as not visible to the players
   # representing a facing down card.

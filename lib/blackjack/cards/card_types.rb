@@ -56,8 +56,8 @@ class Card
   # card_suit: shape of card:
   # card_type: numerical value
   def initialize(card_suit, card_type)
-    @suit = card_suit
-    @type = card_type
+    @suit = card_suit[0]
+    @type = card_type[0]
   end
 
   # Returns the printed notation of a card
@@ -79,7 +79,6 @@ class Card
     else
       text = "[#{to_s}]".black.on_white
     end
-    text
   end
 
 end
