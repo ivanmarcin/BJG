@@ -1,4 +1,4 @@
-class BlackJackPlayer < Player
+cleaclass BlackJackPlayer < Player
 # Represents a game player with the logic for a Black Jack game
 
   # key value pairs.
@@ -16,16 +16,11 @@ class BlackJackPlayer < Player
   def clear_cards
     @cards_in_hand = {}
   end
+
   # Adds a card to the players deck.
   # hidden is a flag to display the card as not visible to the players
   # representing a facing down card.
   def add_card(card, hidden = false)
-    # player can only have one hidden card in the game
-    if hidden
-      @cards_in_hand.keys.each do |card|
-        @cards_in_hand[card] = false
-      end
-    end
     @cards_in_hand[card] = hidden
   end
 
