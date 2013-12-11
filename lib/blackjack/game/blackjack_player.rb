@@ -1,4 +1,4 @@
-cleaclass BlackJackPlayer < Player
+class BlackJackPlayer < Player
 # Represents a game player with the logic for a Black Jack game
 
   # key value pairs.
@@ -29,7 +29,7 @@ cleaclass BlackJackPlayer < Player
   # counting 2(or more) aces as 11 won't work here as the deck goes over to 22.
   def hand_value
     hand_value = 0
-    has_ace = false
+    has_ace    = false
 
     @cards_in_hand.keys.each do |c|
       case c.type
@@ -71,5 +71,4 @@ cleaclass BlackJackPlayer < Player
       @cards_in_hand[c] = false
     end
   end
-
 end

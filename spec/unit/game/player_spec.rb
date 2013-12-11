@@ -30,9 +30,9 @@ module Players
         test_player.add_card(c1, true)
         expect(test_player.cards_in_hand[c1]).to eq(true)
 
-        test_player.add_card(c2, true)
-        expect(test_player.cards_in_hand[c1]).to eq(false)
-        expect(test_player.cards_in_hand[c2]).to eq(true)
+        test_player.add_card(c2, false)
+        expect(test_player.cards_in_hand[c1]).to eq(true)
+        expect(test_player.cards_in_hand[c2]).to eq(false)
       end
 
       it 'calls a blackjack correctly' do
