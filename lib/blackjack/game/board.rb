@@ -17,7 +17,7 @@ class Board
 
   # Drawing routine.
   # Receives a game state, and draws the board.
-  def self.re_draw(players, game_stats, action_list = nil)
+  def self.re_draw(players, game_stats = nil, action_list = nil)
     clear_screen
 
     print_header
