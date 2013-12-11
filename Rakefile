@@ -20,4 +20,4 @@ Dir[File.expand_path(File.dirname(__FILE__) + '/tasks/*.rake')].each do |f|
   end
 end
 
-task :default => ['test:bvt']
+task :default => ['game:start']
