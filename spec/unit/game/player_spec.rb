@@ -37,9 +37,9 @@ module Players
 
       it 'calls a blackjack correctly' do
         test_player = BlackJackPlayer.new("bj")
-        c1 = Card.new(:heart,:ace)
-        c2 = Card.new(:diamond,:king)
-        c3 = Card.new(:clove,:four)
+        c1 = Card.new([:heart],[:ace])
+        c2 = Card.new([:diamond],[:king])
+        c3 = Card.new([:clove],[:four])
 
         expect(test_player.blackjack_in_hand?).to eq(false)
 
@@ -53,9 +53,9 @@ module Players
 
       it 'calculates the hand value ' do
         test_player = BlackJackPlayer.new("hvalue")
-        c1 = Card.new(:heart,:ace)
-        c2 = Card.new(:diamond,:king)
-        c3 = Card.new(:clove,:three)
+        c1 = Card.new([:heart],[:ace])
+        c2 = Card.new([:diamond],[:king])
+        c3 = Card.new([:clove],[:three])
 
         expect(test_player.hand_value).to eq(0)
 

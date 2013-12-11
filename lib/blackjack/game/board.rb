@@ -85,7 +85,6 @@ class Board
     puts  avt + "*".yellow + "  #{player.name} \t\t\t".magenta
   end
 
-
   # Player Character drawing
   def self.player_avatar
     return "(゜_゜)".cyan
@@ -106,10 +105,9 @@ class Board
   end
 
   def self.print_board_logo
-    puts "\t         /    \\ ".yellow
-    puts "\t   ==== | =BJ= | ====".light_green
-    puts "\t         \\    /  \n\n".yellow
+    puts "\n\t\t\t         /    \\ ".yellow
+    puts "\t\t\t   ==== | =BJ= | ====".light_green
+    puts "\t\t\t         \\    /  \n\n".yellow
   end
-
 
 end

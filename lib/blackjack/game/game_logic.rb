@@ -33,7 +33,6 @@ class GameLogic
               #auto play
         when :human
           while current_player.hand_value < 21
-            #Board.re_draw(players)
             action_handler(current_player)
           end
       end
@@ -70,7 +69,7 @@ class GameLogic
 
   # Game action
   def action_handler(player)
-
+    Board.re_draw(player,)
    # case act
    #   when :hit
    #     #add a card

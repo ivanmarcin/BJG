@@ -20,19 +20,19 @@ module Cards
 
     describe '#print' do
       it 'prints nicely' do
-        expect(Card.new(:spade,:king).to_s).to eq "K♠"
-        expect(Card.new(:heart,:jack).to_s).to eq "J♥"
-        expect(Card.new(:diamond,:queen).to_s).to eq "Q♦"
-        expect(Card.new(:clove,:ace).to_s).to eq "A♣"
-        expect(Card.new(:clove,:three).to_s).to eq "3♣"
+        expect(Card.new([:spade],[:king]).to_s).to eq "K♠"
+        expect(Card.new([:heart],[:jack]).to_s).to eq "J♥"
+        expect(Card.new([:diamond],[:queen]).to_s).to eq "Q♦"
+        expect(Card.new([:clove],[:ace]).to_s).to eq "A♣"
+        expect(Card.new([:clove],[:three]).to_s).to eq "3♣"
       end
     end
 
     describe '#value' do
       it 'calculates the correct value' do
-        expect(Card.new(:clove,:ace).value).to eq 1
-        expect(Card.new(:clove,:king).value).to eq 13
-        expect(Card.new(:clove,:three).value).to eq 3
+        expect(Card.new([:clove],[:ace]).value).to eq 1
+        expect(Card.new([:clove],[:king]).value).to eq 13
+        expect(Card.new([:clove],[:three]).value).to eq 3
       end
     end
   end
