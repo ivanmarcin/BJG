@@ -7,7 +7,6 @@ require 'lib/blackjack/players/player'
 require 'lib/blackjack/players/blackjack_player'
 require 'lib/blackjack/players/dealer'
 require 'lib/blackjack/game/game_logic'
-require 'lib/blackjack/game/game_stats'
 require 'lib/blackjack/game/board'
 
 
@@ -28,10 +27,9 @@ module BlackJackGame
 
     # The Game
     def start_game
-      #todo: make a loop of games until user chooses to exit
       @game_logic.game_round
 
-      puts "Bye! thx for playing"
+      puts 'Thanks for playing!'
     end
 
   end

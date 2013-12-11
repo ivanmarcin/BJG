@@ -2,9 +2,15 @@
 class Board
 # Graphic helper methods to display the game board
 
+
+  ####################################################################
+  # Interactive methods
+  ####################################################################
+
+
   # Drawing routine.
   # Receives a game state, and draws the board.
-  def self.re_draw(players, action_list = nil, game_stats = nil)
+  def self.re_draw(players, action_list = nil, winners = false, game_stats = nil)
     clear_screen
     print_header
     print_separator
@@ -15,10 +21,35 @@ class Board
 
     print_separator
 
-    if action_list
-      ask_action(action_list)
-    end
+    print_winner_list(winners) if winners
+
+    ask_action(action_list) if action_list
   end
+
+   # Displays a list of actions to the user, and returns the user's selected action
+  # as a char, being the first letter of the action typed by the user.
+  def self.ask_action(action_list = nil)
+    if action_list
+      action_bar = "Action? (Type key followed by enter)\t".blue
+      action_list.each do |action|
+        action_bar += " - [#{action[0]}]".green + action[1..-1]
+      end
+
+      puts action_bar
+
+      output = STDIN.gets
+
+      return output.capitalize[0]
+    end
+
+    return nil
+  end
+
+
+  ####################################################################
+  # Screen printing
+  ####################################################################
+
 
   # Prints a player's data and current card deck.
   def self.print_player(player)
@@ -38,34 +69,18 @@ class Board
     puts " Card Total: #{player.hand_value}".cyan unless hidding
     puts "\t\t #{player_deck} \n\n"
 
-    if player.kind == :dealer
-      print_board_logo
-    end
+    print_board_logo if player.kind == :dealer
+  end
+
+  # Helper to print percent of many games a player won
+  def self.print_win_ratio_in_percent(player)
+    "\t\t=> Percent of Games Won: #{player.win_ratio_in_percent}%".green
   end
 
   # Prints a colored line
   def self.print_separator
     separator = "=-_-=" * 15
     puts separator.yellow + "\n"
-  end
-
-  # Displays a list of actions to the user, and returns the user's selected action
-  # as a char, being the first letter of the action typed by the user.
-  def self.ask_action(action_list = nil)
-    if action_list
-      action_bar = "Action? (Type key followed by enter)\t".blue
-      action_list.each do |action|
-        action_bar += " - [#{action[0]}]".green + action[1..-1]
-      end
-
-      puts action_bar
-
-      output = STDIN.gets
-
-      return output.capitalize[0]
-    end
-
-    return nil
   end
 
   # Pretty prints the winner list
@@ -79,9 +94,11 @@ class Board
     system('clear')
   end
 
+
   ####################################################################
   # Ascii drawing methods
   ####################################################################
+
 
   def self.print_avatar(player)
     avt = ""
@@ -92,7 +109,7 @@ class Board
         avt = dealer_avatar
     end
 
-    avt + "*".yellow + "  #{player.name} \t\t\t".magenta
+    avt + "*".yellow + "  #{player.name} #{print_win_ratio_in_percent(player)} \t\t\t".magenta
   end
 
   # Player Character drawing
@@ -115,9 +132,9 @@ class Board
   end
 
   def self.print_board_logo
-    puts "\n\t\t\t         /    \\ ".yellow
-    puts "\t\t\t   ==== | =BJ= | ====".light_green
-    puts "\t\t\t         \\    /  \n\n".yellow
+    puts "\n\t\t         /    \\ ".yellow
+    puts "\t\t   ==== | =BJ= | ====".light_green
+    puts "\t\t         \\    /  \n\n".yellow
   end
 
 end

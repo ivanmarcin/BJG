@@ -66,6 +66,7 @@ class BlackJackPlayer < Player
     blackjack
   end
 
+  # Makes the whole deck visible.
   def reveal_deck
     @cards_in_hand.keys.each do |c|
       @cards_in_hand[c] = false
