@@ -19,7 +19,6 @@ class Board
   # Receives a game state, and draws the board.
   def self.re_draw(players, game_stats = nil, action_list = nil)
     clear_screen
-
     print_header
     print_separator
 
@@ -79,6 +78,16 @@ class Board
   # this works on linux/osx only
   def self.clear_screen
     system('clear')
+  end
+
+  # Player Character drawing
+  def self.player_avatar
+    return "(゜_゜)".cyan
+  end
+
+  # Dealer Character drawing
+  def self.dealer_avatar
+    return "(ﾉ◕".cyan+"ヮ".blue+"◕)-☆".cyan
   end
 
 end
