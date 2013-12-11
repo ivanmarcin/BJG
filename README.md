@@ -5,37 +5,38 @@ Simple console blackjack game.
 Supports a simple computer dealer.
 
 ## Prerequistes
-RVM (preferably)
 JRuby
-bundler
+bundler (or install colorize gem)
 
 ## Installation
 
-From Gem, execute the following commands:
+Install is as simple as installing the gem. The gem includes an executable
+From the console, execute the following commands:
 
-    $ gem install bjg
-    $ bjg
+    $ gem install simpleblackjack
+    $ blackjack
 
-From Source:
+To execute from Source:
 
 Clone repository and then after checkout run
-    $ git clone .........BJG.git
+    $ git clone https://github.com/ivanmarcin/BJG
     $ cd BJG
-    $ rvm install jruby     #optional
-    $ rvm use jruby         #optional
-    $ bundle install        #or gem install colorize
+    $ rvm install jruby     # optional
+    $ rvm use jruby         # optional
+    $ bundle install        # or gem install colorize
     $ rake game:start       # runs the game
 
 ## Usage
 
     Rake version:
-    $> bundle exec rake -T
-    $> bundle exec rake game:start              # starts a new black jack game
+    $> rake game:start              # starts a new black jack game
+    $> rake test:bvt                # show version
+    $> rake spec                    # run tests via rake
 
     Gem version:
-    $> gem install bjg
-    $> bjg
+    $> gem install simpleblackjack
+    $> blackjack
 
-# Running tests
+# Running tests (with sources)
     $> cd BJG
     $> rspec
