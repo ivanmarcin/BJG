@@ -41,3 +41,17 @@ Clone repository and then after checkout run:
 # Running tests (with sources)
     $> cd BJG
     $> rspec
+    
+
+##ChangeList
+
+V 0.2.0
+Initial Release
+
+V 0.3.0
+Minor comestic updates. 
+Makes avatar display and win % nicer
+
+
+last version showing up in rubygems is 0.2.0, v3 may take a while to pop up. (Why rubygems...why?!)
+
