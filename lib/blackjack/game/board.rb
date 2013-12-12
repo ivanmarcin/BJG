@@ -74,7 +74,11 @@ class Board
 
   # Helper to print percent of many games a player won
   def self.print_win_ratio_in_percent(player)
-    "\t\t=> Percent of Games Won: #{player.win_ratio_in_percent.round(3)}%".green
+    if player.games_played > 0
+      "\t\t=> Percent of Games Won: #{player.win_ratio_in_percent.round(3)}%".green
+    else
+      ""
+    end
   end
 
   # Prints a colored line
@@ -109,7 +113,11 @@ class Board
         avt = dealer_avatar
     end
 
-    avt + "*".yellow + "  #{player.name} #{print_win_ratio_in_percent(player)} \t\t\t".magenta
+    avt += " ***".yellow + "  #{player.name} \t".magenta
+    if player.kind == :human
+      avt += " #{print_win_ratio_in_percent(player)}".green
+    end
+    avt
   end
 
   # Player Character drawing

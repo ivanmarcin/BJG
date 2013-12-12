@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
@@ -10,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors                   = ["Ivan Marcin"]
   s.email                     = ["ivanmarcin@gmail.com"]
   s.homepage                  = "https://github.com/ivanmarcin/BJG"
-  s.summary                   = "Simple Black Jack Game"
-  s.description               = "Black Jack card game"
+  s.summary                   = "BlackJack Game"
+  s.description               = "A very simple console Black Jack card game"
 
   s.executables << 'blackJack'
 
