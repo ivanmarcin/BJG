@@ -23,7 +23,6 @@ class Dealer < BlackJackPlayer
     end
 
     player_against.each do |p|
-      puts p.hand_value
       if p.kind == :human and p.hand_value > score_to_beat and p.hand_value <= 21
         score_to_beat = p.hand_value
       end

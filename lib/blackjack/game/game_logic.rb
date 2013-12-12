@@ -90,7 +90,6 @@ class GameLogic
   # Game action
   def action_handler(player)
 
-    puts "dealing with #{player.name}"
     response = Board.re_draw(@player_list,["Hit", "Stay"])
     case response
       when 'H'

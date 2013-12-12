@@ -74,7 +74,7 @@ class Board
 
   # Helper to print percent of many games a player won
   def self.print_win_ratio_in_percent(player)
-    "\t\t=> Percent of Games Won: #{player.win_ratio_in_percent}%".green
+    "\t\t=> Percent of Games Won: #{player.win_ratio_in_percent.round(3)}%".green
   end
 
   # Prints a colored line
@@ -85,7 +85,7 @@ class Board
 
   # Pretty prints the winner list
   def self.print_winner_list(winners)
-    puts " **!!!! #{winners.join(' and ')} wins this round!".magenta
+    puts "\n **!!!! #{winners.join(' and ')} wins this round !!!!\n".magenta
   end
 
   # clears the display to ready it for a redraw.
